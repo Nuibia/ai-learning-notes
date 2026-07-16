@@ -17,7 +17,8 @@
 
 ## 文章
 
-- [我一直把 LLM 当成 Agent，直到我理解了 Runtime](./articles/2026-07-15-agent-runtime-and-llm.md)
+- 2026-07-15：[我一直把 LLM 当成 Agent，直到我理解了 Runtime](./articles/2026-07-15-agent-runtime-and-llm.md)（[掘金](https://juejin.cn/post/7662376768221331465)）
+- 2026-07-16：[Agent Runtime 出错后，应该由谁恢复？](./articles/2026-07-16-agent-runtime-error-recovery.md)（[掘金](https://juejin.cn/spost/7662777075909607475)）
 
 ## 内容状态
 
