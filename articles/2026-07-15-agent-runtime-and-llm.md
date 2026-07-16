@@ -1,5 +1,7 @@
 # 我一直把 LLM 当成 Agent，直到我理解了 Runtime
 
+> 掘金发布地址：[https://juejin.cn/post/7662376768221331465](https://juejin.cn/post/7662376768221331465)
+
 我最近在系统学习 AI Agent，也一直在用 Codex、Claude 等工具完成真实项目。
 
 我原本以为自己已经对 Agent 有了不少实践经验：会使用 Tool、MCP、Skill、Plugin，也做过多角色协作、状态回流、评估和人工确认。但在一次学习中，我被一个很基础的问题卡住了：
