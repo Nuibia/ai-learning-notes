@@ -1,5 +1,7 @@
 # 从 messages 看懂 Agent 的工具调用循环：Runtime 如何衔接模型与工具
 
+> 掘金发布地址：[https://juejin.cn/spost/7663056124003385353](https://juejin.cn/spost/7663056124003385353)
+
 前两天的学习中，我先后弄懂了两个问题：
 
 1. LLM 不是 Agent，Runtime 才是承载 Agent 运行的控制层；
