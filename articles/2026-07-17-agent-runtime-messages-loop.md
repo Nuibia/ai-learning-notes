@@ -2,6 +2,8 @@
 
 > 掘金发布地址：[https://juejin.cn/spost/7663056124003385353](https://juejin.cn/spost/7663056124003385353)
 
+> 完整案例代码：[minimal-agent-runtime](../examples/minimal-agent-runtime/)
+
 前两天的学习中，我先后弄懂了两个问题：
 
 1. LLM 不是 Agent，Runtime 才是承载 Agent 运行的控制层；
@@ -13,7 +15,7 @@
 
 ## 先说明：本文中的 Runtime 从哪里来？
 
-本文使用的 `minimal-agent-runtime` 不是某个官方 Agent 框架的源码，而是一个教学实验。它根据我之前提出的伪代码和约束写成，只允许调用 `read_file`，最多循环三轮，并对暂时性工具错误进行有限重试。
+本文使用的 [`minimal-agent-runtime`](../examples/minimal-agent-runtime/) 不是某个官方 Agent 框架的源码，而是一个可运行的教学实验。它根据我之前提出的伪代码和约束写成，只允许调用 `read_file`，最多循环三轮，并对暂时性工具错误进行有限重试。读者可以在案例目录执行 `node --test runtime.test.mjs`，观察每条结论对应的测试。
 
 它刻意不连接真实 LLM，也不读取真实文件。它的作用不是让我记住某个厂商的 API 格式，而是把下面这条控制链路显式地展示出来：
 
