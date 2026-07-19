@@ -21,6 +21,7 @@
 - 2026-07-16：[Agent Runtime 出错后，应该由谁恢复？](./articles/2026-07-16-agent-runtime-error-recovery.md)（[掘金](https://juejin.cn/spost/7662777075909607475)）
 - 2026-07-17：[从 messages 看懂 Agent 的工具调用循环：Runtime 如何衔接模型与工具](./articles/2026-07-17-agent-runtime-messages-loop.md)（[掘金](https://juejin.cn/spost/7663056124003385353)）
 - 2026-07-18：[第一次真正调用 LLM 后，我看清了 Runtime、SDK 和模型的边界](./articles/2026-07-18-real-llm-call-runtime-sdk-boundary.md)（[掘金](https://juejin.cn/spost/7663456780569215002)）
+- 2026-07-19：[模型返回了 JSON，为什么还不能调用工具？Runtime 的结构化输出校验链路](./articles/2026-07-19-structured-output-runtime-validation.md)（[掘金](https://juejin.cn/spost/7663687661035290659)）
 
 ## 内容状态
 
