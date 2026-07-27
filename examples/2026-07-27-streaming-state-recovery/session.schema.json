@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "持久化确认会话",
+  "type": "object",
+  "required": ["sessionId", "phase", "pendingWrite", "idempotencyKey"],
+  "properties": {
+    "sessionId": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "enum": ["streaming", "waiting_confirmation", "written", "failed", "cancelled"] },
+    "pendingWrite": { "type": "object" },
+    "idempotencyKey": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

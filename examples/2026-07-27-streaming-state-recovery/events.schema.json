@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "本地流式事件",
+  "type": "object",
+  "required": ["type", "sequence"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "response.created",
+        "output_text.delta",
+        "tool_call.delta",
+        "response.completed",
+        "response.cancelled",
+        "response.failed"
+      ]
+    },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "text": { "type": "string" },
+    "toolName": { "type": "string" },
+    "argumentsDelta": { "type": "string" },
+    "error": { "type": "string" }
+  },
+  "additionalProperties": false
+}
