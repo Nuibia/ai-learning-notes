@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L13 Agent 全链路 Demo</title>
+    <style>
+      body { max-width: 880px; margin: 40px auto; padding: 0 20px; font: 16px/1.6 system-ui; }
+      form { display: flex; gap: 8px; }
+      input { flex: 1; padding: 10px; }
+      button { padding: 10px 16px; cursor: pointer; }
+      #confirm { display: none; margin-top: 16px; padding: 16px; background: #fff4cc; }
+      #answer { font-size: 20px; margin: 20px 0; }
+      pre { padding: 16px; overflow: auto; background: #111; color: #d7ffd7; }
+      .notice { padding: 12px 16px; background: #eef4ff; border-left: 4px solid #4776e6; }
+    </style>
+  </head>
+  <body>
+    <h1>Agent：从聊天 UI 到工具确认</h1>
+    <p>输入一条要写进学习笔记的内容，观察每一层产生的事件。</p>
+    <div class="notice">
+      <strong>术语标签：</strong>
+      本页没有调用 DeepSeek。页面中的状态名、接口名和 SSE 事件名均为
+      <strong>Demo 自定义协议</strong>；“幂等键”属于通用工程概念。
+    </div>
+    <form id="chat">
+      <input id="message" value="记录我理解了 Runtime 是状态真源" />
+      <button>发送</button>
+    </form>
+    <div id="confirm">
+      Runtime 请求执行 <code>write_note</code>。
+      <button id="approve">人工确认</button>
+    </div>
+    <div id="answer"></div>
+    <pre id="trace">等待发送……</pre>
+
+    <script>
+      const form = document.querySelector("#chat");
+      const message = document.querySelector("#message");
+      const confirmBox = document.querySelector("#confirm");
+      const approve = document.querySelector("#approve");
+      const answer = document.querySelector("#answer");
+      const trace = document.querySelector("#trace");
+      let runId;
+      let source;
+
+      function renderEvent(event) {
+        trace.textContent +=
+          `\n${event.id}. [Demo事件] ${event.type} [Demo状态: ${event.runStatus}]`;
+        if (event.type === "confirmation.required") confirmBox.style.display = "block";
+        if (event.type === "response.output_text.delta") answer.textContent += event.data.text;
+        if (event.type === "response.completed") confirmBox.style.display = "none";
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        trace.textContent = "[Demo接口] UI → POST /api/messages";
+        answer.textContent = "";
+        confirmBox.style.display = "none";
+
+        const response = await fetch("/api/messages", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ message: message.value })
+        });
+        ({ runId } = await response.json());
+
+        source?.close();
+        source = new EventSource(`/api/runs/${runId}/events`);
+        [
+          "request.accepted",
+          "model.tool_call",
+          "confirmation.required",
+          "confirmation.accepted",
+          "tool.started",
+          "tool.completed",
+          "response.output_text.delta",
+          "response.completed",
+          "response.cancelled"
+        ].forEach((type) => {
+          source.addEventListener(type, (messageEvent) => {
+            renderEvent(JSON.parse(messageEvent.data));
+          });
+        });
+      });
+
+      approve.addEventListener("click", async () => {
+        trace.textContent += "\n[Demo接口] UI → POST /confirm（approved=true）";
+        await fetch(`/api/runs/${runId}/confirm`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ approved: true })
+        });
+      });
+    </script>
+  </body>
+</html>
