@@ -17,12 +17,22 @@
 
 ## 文章
 
+<!-- article-index:start -->
 - 2026-07-15：[我一直把 LLM 当成 Agent，直到我理解了 Runtime](./articles/2026-07-15-agent-runtime-and-llm.md)（[掘金](https://juejin.cn/post/7662376768221331465)）
 - 2026-07-16：[Agent Runtime 出错后，应该由谁恢复？](./articles/2026-07-16-agent-runtime-error-recovery.md)（[掘金](https://juejin.cn/spost/7662777075909607475)）
 - 2026-07-17：[从 messages 看懂 Agent 的工具调用循环：Runtime 如何衔接模型与工具](./articles/2026-07-17-agent-runtime-messages-loop.md)（[掘金](https://juejin.cn/spost/7663056124003385353)）
 - 2026-07-18：[第一次真正调用 LLM 后，我看清了 Runtime、SDK 和模型的边界](./articles/2026-07-18-real-llm-call-runtime-sdk-boundary.md)（[掘金](https://juejin.cn/spost/7663456780569215002)）
-- 2026-07-19：[模型返回了 JSON，为什么还不能调用工具？Runtime 的结构化输出校验链路](./articles/2026-07-19-structured-output-runtime-validation.md)（[掘金](https://juejin.cn/spost/7663687661035290659)）
-- 2026-07-29：[我以为用了向量检索就是 RAG，直到我追完了检索结果的去向](./articles/2026-07-29-rag-retrieval-chunk-index.md)
+- 2026-07-19：[模型返回了 JSON，为什么还不能调用工具？Runtime 的结构化输出校验链路](./articles/2026-07-19-structured-output-runtime-validation.md)（[掘金](https://juejin.cn/post/7663687661035290659)）
+- 2026-07-20：[模型说要调用工具之后，究竟是谁动手？我用两次真实 API 调用看清 Tool Calling](./articles/2026-07-20-real-tool-calling-two-model-calls.md)（[掘金](https://juejin.cn/post/7664486932710080563)）
+- 2026-07-21：[我终于分清了 Agent Loop 的模型上限和工具执行](./articles/2026-07-21-agent-loop-model-limit-and-tool-execution.md)（[掘金](https://juejin.cn/post/7664869898595319846)）
+- 2026-07-22：[从一个最小 Runtime Demo 看懂：陌生的 599 为什么不能重试](./articles/2026-07-22-provider-adapter-error-recovery.md)（[掘金](https://juejin.cn/spost/7664899557906907151)）
+- 2026-07-23：[从单文件 CLI Demo 看清 Agent Runtime 的边界](./articles/2026-07-23-cli-agent-runtime-boundaries.md)（[掘金](https://juejin.cn/spost/7665594166467264552)）
+- 2026-07-27：[我以为 SSE 渲染就是 Agent 流式，直到它停在用户确认前](./articles/2026-07-27-agent-streaming-runtime-boundaries.md)（[掘金](https://juejin.cn/post/7666646110230118440)）
+- 2026-07-28：[Agent 的人工确认为什么必须由 Runtime 接管？](./articles/2026-07-28-agent-runtime-human-confirmation.md)（[掘金](https://juejin.cn/spost/7667039109766938639)）
+- 2026-07-29：[我以为用了向量检索就是 RAG，直到我追完了检索结果的去向](./articles/2026-07-29-rag-retrieval-chunk-index.md)（[掘金](https://juejin.cn/spost/7667559681464975360)）
+- 2026-07-30：[RAG 回答错了，问题到底出在召回、重排，还是生成？](./articles/2026-07-30-rag-retrieval-rerank-evaluation.md)（[掘金](https://juejin.cn/post/7668156693868970038)）
+- 2026-08-01：[意图识别之后，Agent 到底该怎么做？我用报销流程理解 Router、Workflow 与 Agent](./articles/2026-08-01-workflow-router-agent-boundaries.md)（[掘金](https://juejin.cn/post/7668619119231025194)）
+<!-- article-index:end -->
 
 ## 内容状态
 
