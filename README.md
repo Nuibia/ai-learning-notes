@@ -32,6 +32,7 @@
 - 2026-07-29：[我以为用了向量检索就是 RAG，直到我追完了检索结果的去向](./articles/2026-07-29-rag-retrieval-chunk-index.md)（[掘金](https://juejin.cn/spost/7667559681464975360)）
 - 2026-07-30：[RAG 回答错了，问题到底出在召回、重排，还是生成？](./articles/2026-07-30-rag-retrieval-rerank-evaluation.md)（[掘金](https://juejin.cn/post/7668156693868970038)）
 - 2026-08-01：[意图识别之后，Agent 到底该怎么做？我用报销流程理解 Router、Workflow 与 Agent](./articles/2026-08-01-workflow-router-agent-boundaries.md)（[掘金](https://juejin.cn/post/7668619119231025194)）
+- 2026-08-03：[Agent 卡在人工确认时，重启后怎么继续？我用检查点和 LangGraph 看懂状态恢复](./articles/2026-08-03-agent-state-checkpoint-langgraph.md)（[掘金](https://juejin.cn/spost/7669644245594914857)）
 <!-- article-index:end -->
 
 ## 内容状态
