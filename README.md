@@ -33,6 +33,7 @@
 - 2026-07-30：[RAG 回答错了，问题到底出在召回、重排，还是生成？](./articles/2026-07-30-rag-retrieval-rerank-evaluation.md)（[掘金](https://juejin.cn/post/7668156693868970038)）
 - 2026-08-01：[意图识别之后，Agent 到底该怎么做？我用报销流程理解 Router、Workflow 与 Agent](./articles/2026-08-01-workflow-router-agent-boundaries.md)（[掘金](https://juejin.cn/post/7668619119231025194)）
 - 2026-08-03：[Agent 卡在人工确认时，重启后怎么继续？我用检查点和 LangGraph 看懂状态恢复](./articles/2026-08-03-agent-state-checkpoint-langgraph.md)（[掘金](https://juejin.cn/spost/7669644245594914857)）
+- 2026-08-04：[我写过 MCP Server，却一直以为 MCP 只有 Tool](./articles/2026-08-04-mcp-primitives-transport-trust-boundary.md)（[掘金](https://juejin.cn/spost/7669999915607982134)）
 <!-- article-index:end -->
 
 ## 内容状态
