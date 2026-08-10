@@ -37,6 +37,7 @@
 - 2026-08-05：[从 MCP 原理到真实 Server：我把 Tool、Resource、Prompt 和错误边界跑通了](./articles/2026-08-05-mcp-server-tool-resource-prompt-errors.md)（[掘金](https://juejin.cn/spost/7670080969732423690)）
 - 2026-08-06：[Agent 已经能跑起来了，我却不知道怎样判断它好不好](./articles/2026-08-06-agent-eval-guardrails-trace.md)（[掘金](https://juejin.cn/spost/7670798157669335086)）
 - 2026-08-06：[我没有自研 AI 中转站：8 小时跑通 New API、DeepSeek 与 Codex Coding Plan](./articles/2026-08-06-ai-gateway-new-api-cliproxyapi.md)（[掘金](https://juejin.cn/spost/7670720234002284595)）
+- 2026-08-10：[Agent 已经能测、能追踪了，我才发现这还不等于能上线](./articles/2026-08-10-agent-production-runtime.md)（[掘金](https://juejin.cn/spost/7671897072309157903)）
 <!-- article-index:end -->
 
 ## 内容状态
