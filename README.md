@@ -35,6 +35,7 @@
 - 2026-08-03：[Agent 卡在人工确认时，重启后怎么继续？我用检查点和 LangGraph 看懂状态恢复](./articles/2026-08-03-agent-state-checkpoint-langgraph.md)（[掘金](https://juejin.cn/spost/7669644245594914857)）
 - 2026-08-04：[我写过 MCP Server，却一直以为 MCP 只有 Tool](./articles/2026-08-04-mcp-primitives-transport-trust-boundary.md)（[掘金](https://juejin.cn/spost/7669999915607982134)）
 - 2026-08-05：[从 MCP 原理到真实 Server：我把 Tool、Resource、Prompt 和错误边界跑通了](./articles/2026-08-05-mcp-server-tool-resource-prompt-errors.md)（[掘金](https://juejin.cn/spost/7670080969732423690)）
+- 2026-08-06：[Agent 已经能跑起来了，我却不知道怎样判断它好不好](./articles/2026-08-06-agent-eval-guardrails-trace.md)（[掘金](https://juejin.cn/spost/7670798157669335086)）
 - 2026-08-06：[我没有自研 AI 中转站：8 小时跑通 New API、DeepSeek 与 Codex Coding Plan](./articles/2026-08-06-ai-gateway-new-api-cliproxyapi.md)（[掘金](https://juejin.cn/spost/7670720234002284595)）
 <!-- article-index:end -->
 
