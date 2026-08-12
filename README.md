@@ -39,7 +39,7 @@
 - 2026-08-06：[我没有自研 AI 中转站：8 小时跑通 New API、DeepSeek 与 Codex Coding Plan](./articles/2026-08-06-ai-gateway-new-api-cliproxyapi.md)（[掘金](https://juejin.cn/spost/7670720234002284595)）
 - 2026-08-10：[Agent 已经能测、能追踪了，我才发现这还不等于能上线](./articles/2026-08-10-agent-production-runtime.md)（[掘金](https://juejin.cn/spost/7671897072309157903)）
 - 2026-08-11：[我能解释 RAG、MCP 和 Eval，却画不出一条完整的 Agent 链路](./articles/2026-08-11-agent-integration-rag-tool-runtime-eval.md)（[掘金](https://juejin.cn/spost/7672698563570679854)）
-- 2026-08-12：[Agent 能跑通以后，我才发现代码不是交付物](./articles/2026-08-12-agent-delivery-handoff.md)（[掘金](https://juejin.cn/spost/7672951420880109604)）
+- 2026-08-12：[Agent 能跑通以后，我才发现代码不是交付物](./articles/2026-08-12-agent-delivery-handoff.md)（[掘金](https://juejin.cn/post/7672951420880109604)）
 <!-- article-index:end -->
 
 ## 内容状态
