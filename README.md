@@ -41,6 +41,7 @@
 - 2026-08-11：[我能解释 RAG、MCP 和 Eval，却画不出一条完整的 Agent 链路](./articles/2026-08-11-agent-integration-rag-tool-runtime-eval.md)（[掘金](https://juejin.cn/spost/7672698563570679854)）
 - 2026-08-12：[Agent 能跑通以后，我才发现代码不是交付物](./articles/2026-08-12-agent-delivery-handoff.md)（[掘金](https://juejin.cn/post/7672951420880109604)）
 - 2026-08-13：[为了实现“小说自由”，我搭了一套 AI 小说工作流，结果却不如回家种田](./articles/2026-08-13-ai-novel-workflow-eval-false-positive.md)（[掘金](https://juejin.cn/spost/7673413097324871715)）
+- 2026-08-16：[学完 Agent 开发基础后，我准备把它真正用在文字创作里](./articles/2026-08-16-writing-agent-from-loop.md)（[掘金](https://juejin.cn/spost/7674826322237898790)）
 <!-- article-index:end -->
 
 ## 内容状态
