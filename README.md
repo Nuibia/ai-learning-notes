@@ -42,6 +42,7 @@
 - 2026-08-12：[Agent 能跑通以后，我才发现代码不是交付物](./articles/2026-08-12-agent-delivery-handoff.md)（[掘金](https://juejin.cn/post/7672951420880109604)）
 - 2026-08-13：[为了实现“小说自由”，我搭了一套 AI 小说工作流，结果却不如回家种田](./articles/2026-08-13-ai-novel-workflow-eval-false-positive.md)（[掘金](https://juejin.cn/spost/7673413097324871715)）
 - 2026-08-16：[学完 Agent 开发基础后，我准备把它真正用在文字创作里](./articles/2026-08-16-writing-agent-from-loop.md)（[掘金](https://juejin.cn/spost/7674826322237898790)）
+- 2026-08-25：[把 AI 客服拆成一条可追踪的生产线：从消息接入、RAG 到人工接管与质量回流](./articles/2026-08-25-ai-customer-service-rag-runtime-production-line.md)（[掘金](https://juejin.cn/spost/7677775118559084594)）
 <!-- article-index:end -->
 
 ## 内容状态
