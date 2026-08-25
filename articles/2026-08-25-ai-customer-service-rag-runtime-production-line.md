@@ -26,73 +26,9 @@
 
 下面这张图把一条用户消息从回调到最终投递的主干、短路、恢复和质量回流画在一起。
 
-```mermaid
-flowchart TB
-  U[用户发送消息] --> P1[第三方客服平台]
-  P1 -->|加密回调| N1[Node：参数检查 / 验签 / 解密]
-  N1 -->|立即返回 HTTP 200：只表示已接收| P1
-  N1 --> N2[异步分发消息事件]
-  N2 --> N3{AI 是否仍有接管资格}
-  N3 -->|否| H1[记录人工侧消息 / 不触发 AI]
-  N3 -->|是| N4[写入本轮并发消息组<br/>Redis List，TTL 10 分钟]
-  N4 --> N5[拼接客户标识、会话标识、渠道上下文和本轮消息]
-  N5 --> A0[调用 Mastra /support]
+> 图中文字较多，可点击图片查看高清原图。
 
-  subgraph AI[Mastra AI Runtime]
-    A0 --> A1[业务密钥校验]
-    A1 --> A2[全局固定窗口限流]
-    A2 --> A3[单客户固定窗口限流]
-    A3 --> M1[恢复最近 20 条会话<br/>Redis 命中；未命中回源 PostgreSQL]
-    M1 --> S1[恢复 5 类进程内 TTL 状态]
-    S1 --> R1[Prepare：范围路由 / 语言处理 / 消息分类 / Query 改写]
-    R1 --> Q1{强规则是否可直接处理}
-    Q1 -->|问候、感谢、告别、明确重述等| Q2[固定快捷回复并持久化]
-    Q1 -->|需语义理解| L1[LLM 结构化分类]
-    L1 --> L2{消息类型}
-    L2 -->|非业务 / 辱骂 / 转人工 / 澄清| Q3[短路、确认或人工兜底]
-    L2 -->|业务问题| K1[确定产品与终端对应的检索分区]
-    K1 --> K2[主 Query + 2～3 个候选 Query + 用户原问]
-    K2 --> K3[多分区并行向量检索<br/>每分区 Top5]
-    K3 --> K4[按 namespace + point.id 去重<br/>全局收敛 Top15]
-    K4 --> W1{弱检索检查<br/>最高分是否低于 0.40}
-    W1 -->|通过| G1{LLM 相关性门<br/>片段能否回答问题}
-    W1 -->|未通过| RC1[二次 Query 改写 + 扩大检索域]
-    G1 -->|能回答| RR1[专用 Rerank，目标 Top5]
-    G1 -->|答非所问| RC1
-    RC1 --> RC2{二次检索是否恢复}
-    RC2 -->|是| RR1
-    RC2 -->|否| C1[澄清提问 / 连续第 3 次追加人工入口]
-    RR1 --> F1[差值过滤：与最高分差距小于 0.25<br/>最多保留 5 条证据]
-    F1 --> G2[Grounding：只允许使用本轮证据]
-    G2 --> GEN1[主模型生成]
-    GEN1 -->|失败| GEN2[备用模型生成]
-    GEN1 --> PP[Runtime 后处理]
-    GEN2 --> PP
-    PP --> O1[过滤非本轮图片 / 修复图片语法<br/>删除交叉引用 / 统一列表格式]
-    O1 --> O2[返回 finalText + 调试信息]
-    Q2 --> O2
-    Q3 --> O2
-    C1 --> O2
-  end
-
-  O2 --> N6[Node 收到 AI 结果]
-  N6 --> N7{发送前双重复查}
-  N7 -->|不是最后一条用户消息| DROP[丢弃过时答案]
-  N7 -->|已被人工接管| DROP
-  N7 -->|仍合法| N8[Markdown 拆成纯文本 + 图片 + 文件]
-  N8 --> N9[调用第三方客服平台发送接口]
-  N9 --> N10[延迟后标记已读]
-  N10 --> P1
-  P1 --> U
-
-  O2 -.一轮埋点.-> OBS[PostgreSQL support_turn]
-  OBS --> BAD[线上坏例 / 转人工归因 / 知识缺口]
-  BAD --> KB[运营修订知识片段]
-  KB --> EMB[重新 Embedding]
-  EMB --> QD[同 ID Upsert 到 Qdrant]
-  QD --> REG[离线代表用例回放]
-  REG -.反馈.-> R1
-```
+[![AI 客服全链路总图](https://raw.githubusercontent.com/Nuibia/ai-learning-notes/main/assets/2026-08-25-ai-customer-service-full-pipeline.png)](https://raw.githubusercontent.com/Nuibia/ai-learning-notes/main/assets/2026-08-25-ai-customer-service-full-pipeline.png)
 
 图很大，但主线其实只有一句话：**技术接收成功之后，Runtime 还要完成资格判断、语义理解、证据检索、受控生成和发送前复查，最后一次外部接口调用也不等于用户已经成功收到消息。**
 
